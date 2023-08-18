@@ -2,13 +2,16 @@ import json
 import urllib.request
 import time
 from threading import Thread, Lock
+import requests
 
 finished_count = 0
 
 
 def count_letters(url, frequency, mutex):
-    response = urllib.request.urlopen(url)
-    txt = str(response.read())
+    #response = urllib.request.urlopen(url)
+    response = requests.get("http://www.rfc-editor.org/rfc/rfc1000.txt")
+    #txt = str(response.read())
+    txt = str(response.text)
     mutex.acquire()
     for l in txt:
         letter = l.lower()
@@ -39,3 +42,4 @@ def main():
 
 
 main()
+
