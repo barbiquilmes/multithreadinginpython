@@ -16,4 +16,8 @@ def parent():
     print("Parent Thread is unblocked...")
 
 
+start = time.time()
 parent()
+end = time.time()
+
+print(f"Took {end - start}s")
