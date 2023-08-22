@@ -1,3 +1,5 @@
+# 0.51 s
+
 import json
 import urllib.request
 import time
@@ -9,7 +11,7 @@ finished_count = 0
 
 def count_letters(url, frequency, mutex):
     #response = urllib.request.urlopen(url)
-    response = requests.get("http://www.rfc-editor.org/rfc/rfc1000.txt")
+    response = requests.get(url)
     #txt = str(response.read())
     txt = str(response.text)
     mutex.acquire()
